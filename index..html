@@ -1,0 +1,1957 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小木馬北海道冬日之旅 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Huninn&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-washi: #FFFCF6;
+    --ink: #3E3A39;
+    --coral: #F2A497;
+    --yamabuki: #F6D27A;
+    --mizu: #A8D3E6;
+    --wakatake: #B9DAA5;
+    --border-w: 3px;
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --radius-sm: 10px;
+    --shadow-solid: 4px 4px 0px #3E3A39;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Huninn', sans-serif;
+    background-color: var(--bg-washi);
+    color: var(--ink);
+  }
+
+  body {
+    background-color: var(--bg-washi);
+    background-image: radial-gradient(#3E3A3912 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+    line-height: 1.65;
+    padding-bottom: 60px;
+    overflow-x: hidden;
+  }
+
+  /* 頂端固定選單 */
+  .top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--bg-washi);
+    border-bottom: var(--border-w) solid var(--ink);
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 2px 0;
+  }
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 0.85rem;
+    padding: 5px 10px;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    background-color: #fff;
+    white-space: nowrap;
+    transition: transform 0.15s ease, background-color 0.15s ease;
+  }
+
+  .nav-links a:hover, .nav-links a:active {
+    background-color: var(--yamabuki);
+    transform: translateY(-2px);
+  }
+
+  .motion-toggle {
+    border: 2px solid var(--ink);
+    background-color: var(--mizu);
+    color: var(--ink);
+    font-family: inherit;
+    font-size: 0.78rem;
+    padding: 5px 9px;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .motion-toggle[aria-pressed="true"] {
+    background-color: #E5E2DC;
+  }
+
+  /* 容器 */
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+
+  /* 通用繪本卡片 */
+  .card {
+    background-color: #FFFFFF;
+    border: var(--border-w) solid var(--ink);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-solid);
+    padding: 20px 18px;
+    margin-bottom: 24px;
+  }
+
+  .section-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.3rem;
+    padding: 6px 16px;
+    border: var(--border-w) solid var(--ink);
+    border-radius: 999px;
+    margin-bottom: 16px;
+    box-shadow: 3px 3px 0px var(--ink);
+  }
+
+  .bg-coral { background-color: var(--coral); }
+  .bg-yamabuki { background-color: var(--yamabuki); }
+  .bg-mizu { background-color: var(--mizu); }
+  .bg-wakatake { background-color: var(--wakatake); }
+  .bg-washi { background-color: var(--bg-washi); }
+
+  /* 首頁 Hero 區塊 */
+  .hero-card {
+    background-color: var(--bg-washi);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background-color: var(--yamabuki);
+    border: 2.5px solid var(--ink);
+    border-radius: 999px;
+    padding: 4px 14px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+
+  .hero-title {
+    font-size: 1.85rem;
+    line-height: 1.3;
+    margin-bottom: 6px;
+    letter-spacing: 0.03em;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    color: #645E5C;
+    margin-bottom: 16px;
+  }
+
+  .hero-svg-wrap {
+    max-width: 340px;
+    margin: 0 auto 18px;
+  }
+
+  /* 倒數計時器 */
+  .countdown-box {
+    background-color: var(--mizu);
+    border: var(--border-w) solid var(--ink);
+    border-radius: var(--radius-md);
+    padding: 14px 12px;
+    display: inline-block;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .countdown-label {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  .cd-item {
+    background-color: #FFFFFF;
+    border: 2.5px solid var(--ink);
+    border-radius: 12px;
+    padding: 8px 4px;
+  }
+
+  .cd-num {
+    display: block;
+    font-size: 1.45rem;
+    line-height: 1.1;
+  }
+
+  .cd-unit {
+    font-size: 0.78rem;
+  }
+
+  /* 航班卡片 */
+  .flight-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .flight-ticket {
+    background-color: var(--bg-washi);
+    border: var(--border-w) solid var(--ink);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    position: relative;
+  }
+
+  .flight-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2.5px dashed var(--ink);
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+  }
+
+  .flight-tag {
+    padding: 3px 10px;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    font-size: 0.82rem;
+  }
+
+  .flight-code {
+    font-size: 1rem;
+  }
+
+  .flight-route {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .airport-box {
+    flex: 1;
+  }
+
+  .airport-code {
+    font-size: 1.4rem;
+    display: block;
+  }
+
+  .airport-name {
+    font-size: 0.85rem;
+    color: #5A5553;
+  }
+
+  .flight-time {
+    display: inline-block;
+    margin-top: 4px;
+    background-color: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    padding: 2px 8px;
+    font-size: 0.9rem;
+  }
+
+  .flight-plane-icon {
+    width: 68px;
+    flex-shrink: 0;
+  }
+
+  /* 每日行程日期切換 */
+  .day-tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .day-tab {
+    font-family: inherit;
+    background-color: #FFFFFF;
+    color: var(--ink);
+    border: var(--border-w) solid var(--ink);
+    border-radius: var(--radius-md);
+    padding: 8px 4px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 2px 2px 0px var(--ink);
+    transition: transform 0.15s ease, background-color 0.15s ease;
+  }
+
+  .day-tab .d-num {
+    display: block;
+    font-size: 0.95rem;
+  }
+
+  .day-tab .d-date {
+    display: block;
+    font-size: 0.78rem;
+    opacity: 0.85;
+  }
+
+  .day-tab.active {
+    background-color: var(--yamabuki);
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 0px var(--ink);
+  }
+
+  /* 切換彈跳動畫 */
+  @keyframes tabBounce {
+    0% { transform: scale(0.95) translateY(4px); }
+    55% { transform: scale(1.03) translateY(-4px); }
+    80% { transform: scale(0.99) translateY(1px); }
+    100% { transform: scale(1) translateY(0); }
+  }
+
+  .day-panel {
+    display: none;
+  }
+
+  .day-panel.active {
+    display: block;
+    animation: tabBounce 0.42s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .day-banner {
+    background-color: var(--bg-washi);
+    border: 2.5px solid var(--ink);
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .day-banner-title {
+    font-size: 1.15rem;
+  }
+
+  .day-banner-sub {
+    font-size: 0.86rem;
+    color: #5E5957;
+  }
+
+  /* 時間軸 */
+  .timeline {
+    position: relative;
+    padding-left: 24px;
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 10px;
+    bottom: 10px;
+    width: 3px;
+    background-color: var(--ink);
+    border-radius: 3px;
+  }
+
+  .tl-item {
+    position: relative;
+    margin-bottom: 16px;
+    background-color: var(--bg-washi);
+    border: 2.5px solid var(--ink);
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+  }
+
+  .tl-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .tl-dot {
+    position: absolute;
+    left: -24px;
+    top: 16px;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    border: 3px solid var(--ink);
+    background-color: var(--coral);
+  }
+
+  .tl-item.highlight {
+    background-color: #FFF7E4;
+  }
+
+  .tl-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+
+  .tl-time {
+    font-size: 0.9rem;
+    background-color: #FFFFFF;
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    padding: 1px 8px;
+  }
+
+  /* 交通方式彩色小標籤 */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.78rem;
+    padding: 2px 9px;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+  }
+
+  .badge-car { background-color: var(--mizu); }
+  .badge-flight { background-color: var(--coral); }
+  .badge-ropeway { background-color: var(--wakatake); }
+  .badge-walk { background-color: #FFFFFF; }
+  .badge-must {
+    background-color: var(--yamabuki);
+    font-weight: 700;
+  }
+
+  .tl-title {
+    font-size: 1.08rem;
+    margin-bottom: 4px;
+  }
+
+  .tl-note {
+    font-size: 0.88rem;
+    color: #55504E;
+  }
+
+  .tl-link {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 0.82rem;
+    color: var(--ink);
+    background-color: var(--mizu);
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    padding: 2px 10px;
+    text-decoration: none;
+  }
+
+  /* 札幌自由探索備案卡片 */
+  .extra-spots {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 2.5px dashed var(--ink);
+  }
+
+  .extra-title {
+    font-size: 0.98rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .extra-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .extra-card {
+    background-color: #FFFFFF;
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    padding: 10px 12px;
+    font-size: 0.88rem;
+  }
+
+  /* 住宿資訊 */
+  .stay-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .stay-card {
+    background-color: var(--bg-washi);
+    border: 2.5px solid var(--ink);
+    border-radius: var(--radius-md);
+    padding: 14px;
+  }
+
+  .stay-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+
+  .stay-nights {
+    background-color: var(--wakatake);
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    padding: 2px 10px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
+  .stay-name {
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+  }
+
+  .stay-addr {
+    font-size: 0.86rem;
+    color: #55504E;
+    margin-bottom: 8px;
+    word-break: break-all;
+  }
+
+  .stay-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .btn-mini {
+    font-family: inherit;
+    font-size: 0.82rem;
+    color: var(--ink);
+    background-color: #FFFFFF;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    padding: 4px 12px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .btn-mini:hover {
+    background-color: var(--yamabuki);
+  }
+
+  /* 可打勾清單 (待辦 / 出發前 / 行李) */
+  .progress-wrap {
+    margin-bottom: 14px;
+  }
+
+  .progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+  }
+
+  .progress-bar {
+    height: 14px;
+    background-color: var(--bg-washi);
+    border: 2.5px solid var(--ink);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background-color: var(--wakatake);
+    border-right: 2px solid var(--ink);
+    transition: width 0.25s ease;
+  }
+
+  .checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background-color: var(--bg-washi);
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    padding: 10px 12px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.15s ease;
+  }
+
+  .check-item.checked {
+    background-color: #F0EFEA;
+    opacity: 0.78;
+  }
+
+  .check-item.checked .check-text {
+    text-decoration: line-through;
+    color: #777270;
+  }
+
+  .custom-box {
+    width: 22px;
+    height: 22px;
+    border: 2.5px solid var(--ink);
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    flex-shrink: 0;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .check-item.checked .custom-box {
+    background-color: var(--wakatake);
+  }
+
+  .custom-box svg {
+    display: none;
+  }
+
+  .check-item.checked .custom-box svg {
+    display: block;
+  }
+
+  .check-content {
+    flex: 1;
+    font-size: 0.94rem;
+  }
+
+  .check-sub {
+    display: block;
+    font-size: 0.8rem;
+    color: #66615F;
+    margin-top: 2px;
+  }
+
+  .luggage-group-title {
+    font-size: 0.96rem;
+    margin: 14px 0 8px;
+    padding: 3px 10px;
+    display: inline-block;
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+  }
+
+  .luggage-group-title:first-of-type {
+    margin-top: 0;
+  }
+
+  .add-item-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .add-input {
+    flex: 1;
+    font-family: inherit;
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    border: 2.5px solid var(--ink);
+    border-radius: 12px;
+    background-color: var(--bg-washi);
+    color: var(--ink);
+  }
+
+  .add-btn {
+    font-family: inherit;
+    font-size: 0.9rem;
+    padding: 8px 14px;
+    border: 2.5px solid var(--ink);
+    border-radius: 12px;
+    background-color: var(--coral);
+    color: var(--ink);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  /* SVG 插圖輕微動態 */
+  @keyframes gentleRock {
+    0%, 100% { transform: rotate(-2.5deg) translateY(0px); }
+    50% { transform: rotate(2.5deg) translateY(-3px); }
+  }
+
+  @keyframes snowFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(5px); }
+  }
+
+  @keyframes cloudDrift {
+    0%, 100% { transform: translateX(0px); }
+    50% { transform: translateX(6px); }
+  }
+
+  .anim-rock {
+    transform-origin: center bottom;
+    animation: gentleRock 3.6s ease-in-out infinite;
+  }
+
+  .anim-snow {
+    animation: snowFloat 3s ease-in-out infinite;
+  }
+
+  .anim-cloud {
+    animation: cloudDrift 5s ease-in-out infinite;
+  }
+
+  /* 減少動態效果支援 (系統偏好 + 手動切換) */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    .anim-rock, .anim-snow, .anim-cloud, .day-panel.active {
+      animation: none !important;
+    }
+    .nav-links a, .day-tab, .progress-fill, .check-item {
+      transition: none !important;
+    }
+  }
+
+  body.reduce-motion {
+    scroll-behavior: auto;
+  }
+  body.reduce-motion .anim-rock,
+  body.reduce-motion .anim-snow,
+  body.reduce-motion .anim-cloud,
+  body.reduce-motion .day-panel.active {
+    animation: none !important;
+  }
+  body.reduce-motion .nav-links a,
+  body.reduce-motion .day-tab,
+  body.reduce-motion .progress-fill,
+  body.reduce-motion .check-item {
+    transition: none !important;
+  }
+
+  @media (min-width: 560px) {
+    .flight-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .day-tabs {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .extra-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- 頂端固定選單 -->
+  <header class="top-nav">
+    <a href="#top" class="nav-brand">
+      <svg width="26" height="26" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        <path d="M6 29 Q18 35 30 29" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/>
+        <path d="M12 29 L13 22 M22 29 L21 22" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/>
+        <rect x="9" y="15" width="15" height="8" rx="4" fill="#F2A497" stroke="#3E3A39" stroke-width="2.8"/>
+        <path d="M20 17 L23 8 L29 10 C31 11 31 14 28 15 L23 16 Z" fill="#F2A497" stroke="#3E3A39" stroke-width="2.8" stroke-linejoin="round"/>
+        <polygon points="22,8 23,4 26,8" fill="#F6D27A" stroke="#3E3A39" stroke-width="2.2" stroke-linejoin="round"/>
+      </svg>
+      <span>小木馬北海道</span>
+    </a>
+    <nav class="nav-links" aria-label="頁面導覽">
+      <a href="#flights">航班</a>
+      <a href="#itinerary">行程</a>
+      <a href="#stays">住宿</a>
+      <a href="#todos">待辦</a>
+      <a href="#predeparture">出發前</a>
+      <a href="#luggage">行李</a>
+    </nav>
+    <button type="button" class="motion-toggle" id="motionToggle" aria-pressed="false" title="切換動態效果">
+      動態：開
+    </button>
+  </header>
+
+  <main class="container" id="top">
+
+    <!-- 首頁插圖 + 標題 + 出發倒數 -->
+    <section class="card hero-card">
+      <span class="hero-badge">2027.01.12 – 01.19 ・ 8天7夜自駕雪國行</span>
+      <h1 class="hero-title">小木馬北海道之旅</h1>
+      <p class="hero-subtitle">高雄 ⇄ 新千歲・美唄・旭川・美瑛・富良野・小樽・札幌</p>
+
+      <!-- 手繪日系繪本風 SVG 插圖：雪地小木馬 + 北海道雪山 + 旭川企鵝 + 小樽煤氣燈 -->
+      <div class="hero-svg-wrap">
+        <svg viewBox="0 0 360 210" width="100%" role="img" aria-label="北海道雪景與小木馬繪本插圖">
+          <!-- 背景雲朵 -->
+          <g class="anim-cloud">
+            <path d="M46 46 H92 C98 46 102 42 102 37 C102 32 98 28 93 28 C91 21 84 17 77 17 C69 17 63 22 61 29 C59 28 57 28 55 28 C48 28 42 33 42 39 C42 43 44 46 46 46 Z" fill="#FFFFFF" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M268 38 H306 C311 38 314 35 314 31 C314 27 311 24 307 24 C305 18 300 15 294 15 C288 15 283 19 281 24 C279 23 277 23 275 23 C269 23 264 27 264 32 C264 35 266 38 268 38 Z" fill="#FFFFFF" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+          </g>
+
+          <!-- 遠方北海道雪山 (十勝岳連峰意象) -->
+          <path d="M24 152 L92 68 L148 134 L198 62 L274 152 Z" fill="#A8D3E6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+          <!-- 山頂積雪 -->
+          <path d="M92 68 L72 93 L84 89 L93 97 L103 88 L113 94 Z" fill="#FFFFFF" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M198 62 L175 91 L188 87 L199 96 L211 86 L223 92 Z" fill="#FFFFFF" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+
+          <!-- 聖誕樹/針葉林 (美瑛青池雪樹) -->
+          <g>
+            <polygon points="44,112 28,148 60,148" fill="#B9DAA5" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+            <polygon points="44,96 32,122 56,122" fill="#B9DAA5" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+            <polygon points="318,108 300,148 336,148" fill="#B9DAA5" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+            <polygon points="318,90 304,120 332,120" fill="#B9DAA5" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+          </g>
+
+          <!-- 雪地丘陵 -->
+          <path d="M10 156 Q95 138 180 154 Q265 170 350 150 L350 196 Q180 202 10 196 Z" fill="#FFFFFF" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+
+          <!-- 旭川小企鵝 -->
+          <g transform="translate(248, 118)">
+            <ellipse cx="22" cy="30" rx="15" ry="20" fill="#3E3A39"/>
+            <ellipse cx="22" cy="32" rx="10" ry="15" fill="#FFFFFF"/>
+            <circle cx="22" cy="13" r="11" fill="#3E3A39"/>
+            <circle cx="18" cy="11" r="2" fill="#FFFFFF"/>
+            <circle cx="26" cy="11" r="2" fill="#FFFFFF"/>
+            <polygon points="22,13 18,17 26,17" fill="#F6D27A" stroke="#3E3A39" stroke-width="2" stroke-linejoin="round"/>
+            <!-- 圍巾 -->
+            <rect x="12" y="20" width="20" height="5" rx="2.5" fill="#F2A497" stroke="#3E3A39" stroke-width="2"/>
+          </g>
+
+          <!-- 主角：搖擺小木馬 -->
+          <g class="anim-rock" transform="translate(116, 86)">
+            <!-- 搖桿木弧 -->
+            <path d="M6 84 Q52 103 98 84 L95 77 Q52 94 9 77 Z" fill="#F6D27A" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+            <!-- 木馬前後腳 -->
+            <path d="M31 60 L23 81 L31 82 L38 61 Z" fill="#F2A497" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M65 60 L73 82 L81 81 L72 60 Z" fill="#F2A497" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+            <!-- 蓬鬆尾巴 -->
+            <path d="M23 43 C9 38 6 54 15 61 C20 64 25 58 25 52 Z" fill="#F6D27A" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+            <!-- 圓潤身體 -->
+            <rect x="22" y="37" width="54" height="27" rx="13.5" fill="#F2A497" stroke="#3E3A39" stroke-width="3"/>
+            <!-- 可愛馬鞍 -->
+            <path d="M37 37 Q49 48 61 37 Z" fill="#A8D3E6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+            <!-- 脖子＋側面小馬頭（含明確吻部與下巴曲線） -->
+            <path d="M58 43
+                     L64 18
+                     C65 12 72 9 78 12
+                     L93 17
+                     C98 19 99 25 94 28
+                     L82 31
+                     L77 48
+                     Z"
+                  fill="#F2A497" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+            <!-- 淺色吻部（鼻口部） -->
+            <path d="M87 15 L93 17 C98 19 99 25 94 28 L87 29 C84 25 84 19 87 15 Z"
+                  fill="#FFFCF6" stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round"/>
+            <!-- 鼻孔與微笑嘴巴 -->
+            <circle cx="92" cy="21" r="1.4" fill="#3E3A39"/>
+            <path d="M89 25 Q92 27 95 25" fill="none" stroke="#3E3A39" stroke-width="2" stroke-linecap="round"/>
+            <!-- 尖尖小馬耳 -->
+            <polygon points="67,12 69,3 75,11" fill="#F2A497" stroke="#3E3A39" stroke-width="2.8" stroke-linejoin="round"/>
+            <!-- 捲捲鬃毛 -->
+            <path d="M64 15 C57 17 56 24 61 27 C56 30 56 36 62 39"
+                  fill="none" stroke="#F6D27A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M64 15 C57 17 56 24 61 27 C56 30 56 36 62 39"
+                  fill="none" stroke="#3E3A39" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- 眼睛與腮紅 -->
+            <circle cx="77" cy="19" r="2.4" fill="#3E3A39"/>
+            <circle cx="77.8" cy="18.2" r="0.8" fill="#FFFFFF"/>
+            <ellipse cx="81" cy="24" rx="3.2" ry="2" fill="#F6D27A"/>
+          </g>
+
+          <!-- 飄落雪花 -->
+          <g class="anim-snow" fill="#FFFFFF" stroke="#3E3A39" stroke-width="2">
+            <circle cx="72" cy="64" r="4"/>
+            <circle cx="145" cy="48" r="3.5"/>
+            <circle cx="235" cy="66" r="4"/>
+            <circle cx="295" cy="82" r="3"/>
+            <circle cx="105" cy="112" r="3"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- 出發倒數計時 -->
+      <div class="countdown-box">
+        <div class="countdown-label">
+          <span>距離 2027/01/12 啟程還有</span>
+        </div>
+        <div class="countdown-grid" id="countdownGrid">
+          <div class="cd-item"><span class="cd-num" id="cd-days">--</span><span class="cd-unit">天</span></div>
+          <div class="cd-item"><span class="cd-num" id="cd-hours">--</span><span class="cd-unit">時</span></div>
+          <div class="cd-item"><span class="cd-num" id="cd-mins">--</span><span class="cd-unit">分</span></div>
+          <div class="cd-item"><span class="cd-num" id="cd-secs">--</span><span class="cd-unit">秒</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 航班卡片 -->
+    <section class="card" id="flights">
+      <h2 class="section-title bg-coral">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M2 16L22 16M4 13L10 13L14 6L16 6L14 13L19 13L21 10L22 10L21 14L19 15L4 15Z" fill="#FFFFFF" stroke="#3E3A39" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <span>航班資訊</span>
+      </h2>
+
+      <div class="flight-grid">
+        <!-- 去程 -->
+        <div class="flight-ticket">
+          <div class="flight-header">
+            <span class="flight-tag bg-yamabuki">去程 ・ 1/12 (二)</span>
+            <strong class="flight-code">台灣虎航 IT260</strong>
+          </div>
+          <div class="flight-route">
+            <div class="airport-box">
+              <span class="airport-code">KHH</span>
+              <span class="airport-name">高雄小港</span>
+              <span class="flight-time">08:00 起飛</span>
+            </div>
+            <div class="flight-plane-icon">
+              <svg viewBox="0 0 72 36" width="100%" aria-hidden="true">
+                <line x1="6" y1="24" x2="66" y2="24" stroke="#3E3A39" stroke-width="2.5" stroke-dasharray="4 4"/>
+                <path d="M22 20 L34 20 L40 10 L44 10 L41 20 L50 20 L53 16 L56 16 L54 22 L22 22 Z" fill="#F2A497" stroke="#3E3A39" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="airport-box">
+              <span class="airport-code">CTS</span>
+              <span class="airport-name">札幌新千歲</span>
+              <span class="flight-time">12:55 抵達</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 回程 -->
+        <div class="flight-ticket">
+          <div class="flight-header">
+            <span class="flight-tag bg-mizu">回程 ・ 1/19 (二)</span>
+            <strong class="flight-code">台灣虎航 IT261</strong>
+          </div>
+          <div class="flight-route">
+            <div class="airport-box">
+              <span class="airport-code">CTS</span>
+              <span class="airport-name">札幌新千歲</span>
+              <span class="flight-time">13:55 起飛</span>
+            </div>
+            <div class="flight-plane-icon">
+              <svg viewBox="0 0 72 36" width="100%" aria-hidden="true">
+                <line x1="6" y1="24" x2="66" y2="24" stroke="#3E3A39" stroke-width="2.5" stroke-dasharray="4 4"/>
+                <path d="M22 20 L34 20 L40 10 L44 10 L41 20 L50 20 L53 16 L56 16 L54 22 L22 22 Z" fill="#A8D3E6" stroke="#3E3A39" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="airport-box">
+              <span class="airport-code">KHH</span>
+              <span class="airport-name">高雄小港</span>
+              <span class="flight-time">18:05 抵達</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 每日行程 -->
+    <section class="card" id="itinerary">
+      <h2 class="section-title bg-yamabuki">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="17" rx="4" fill="#FFFFFF" stroke="#3E3A39" stroke-width="2.5"/>
+          <line x1="3" y1="9" x2="21" y2="9" stroke="#3E3A39" stroke-width="2.5"/>
+          <line x1="8" y1="2" x2="8" y2="6" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="16" y1="2" x2="16" y2="6" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <span>每日行程時間軸</span>
+      </h2>
+
+      <!-- 上方日期切換按鈕 -->
+      <div class="day-tabs" role="tablist" aria-label="選擇行程日期">
+        <button class="day-tab active" role="tab" aria-selected="true" data-day="1">
+          <span class="d-num">DAY 1</span>
+          <span class="d-date">1/12 (二)</span>
+        </button>
+        <button class="day-tab" role="tab" aria-selected="false" data-day="2">
+          <span class="d-num">DAY 2</span>
+          <span class="d-date">1/13 (三)</span>
+        </button>
+        <button class="day-tab" role="tab" aria-selected="false" data-day="3">
+          <span class="d-num">DAY 3</span>
+          <span class="d-date">1/14 (四)</span>
+        </button>
+        <button class="day-tab" role="tab" aria-selected="false" data-day="4">
+          <span class="d-num">DAY 4</span>
+          <span class="d-date">1/15 (五)</span>
+        </button>
+        <button class="day-tab" role="tab" aria-selected="false" data-day="5">
+          <span class="d-num">DAY 5</span>
+          <span class="d-date">1/16 (六)</span>
+        </button>
+        <button class="day-tab" role="tab" aria-selected="false" data-day="6">
+          <span class="d-num">DAY 6</span>
+          <span class="d-date">1/17 (日)</span>
+        </button>
+        <button class="day-tab" role="tab" aria-selected="false" data-day="7">
+          <span class="d-num">DAY 7</span>
+          <span class="d-date">1/18 (一)</span>
+        </button>
+        <button class="day-tab" role="tab" aria-selected="false" data-day="8">
+          <span class="d-num">DAY 8</span>
+          <span class="d-date">1/19 (二)</span>
+        </button>
+      </div>
+
+      <!-- DAY 1 -->
+      <div class="day-panel active" id="panel-1">
+        <div class="day-banner">
+          <div>
+            <div class="day-banner-title">DAY 1（1/12 週二）抵達北海道・雪地裝備採買</div>
+            <div class="day-banner-sub">高雄飛往新千歲 → 租車自駕前往美唄・岩見澤</div>
+          </div>
+          <!-- 小車 SVG -->
+          <svg width="56" height="36" viewBox="0 0 64 40" aria-hidden="true">
+            <path d="M12 22 L18 11 H44 L52 22 H58 V30 H6 V22 Z" fill="#A8D3E6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+            <circle cx="18" cy="31" r="5" fill="#F6D27A" stroke="#3E3A39" stroke-width="3"/>
+            <circle cx="46" cy="31" r="5" fill="#F6D27A" stroke="#3E3A39" stroke-width="3"/>
+          </svg>
+        </div>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">06:00~</span>
+              <span class="badge badge-walk">報到出發</span>
+            </div>
+            <div class="tl-title">高雄小港機場集合報到</div>
+            <div class="tl-note">準備護照、日文譯本駕照、台灣駕照正本</div>
+          </div>
+
+          <div class="tl-item">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">08:00~12:55</span>
+              <span class="badge badge-flight">✈️ 飛機 IT260</span>
+            </div>
+            <div class="tl-title">高雄飛往新千歲機場</div>
+            <div class="tl-note">搭乘台灣虎航 IT260 直飛北海道</div>
+          </div>
+
+          <div class="tl-item">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">13:00~14:00</span>
+              <span class="badge badge-walk">🍴 午餐</span>
+            </div>
+            <div class="tl-title">新千歲機場吃東西</div>
+            <div class="tl-note">國內線航廈美食街或拉麵道場補充體力</div>
+          </div>
+
+          <div class="tl-item">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">14:00~15:00</span>
+              <span class="badge badge-car">🚗 租車手續</span>
+            </div>
+            <div class="tl-title">機場領車（雪胎確認）</div>
+            <div class="tl-note">檢查雪胎胎紋、雪刷、4WD 設定與保險文件</div>
+          </div>
+
+          <div class="tl-item">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">15:00~17:00</span>
+              <span class="badge badge-car">🚗 自駕 2 小時</span>
+            </div>
+            <div class="tl-title">前往美唄住宿放行李</div>
+            <div class="tl-note">入住北海道美唄市獨棟民宿（東3條北6丁目3-20），熟悉雪地駕駛節奏</div>
+          </div>
+
+          <div class="tl-item highlight">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">17:00~</span>
+              <span class="badge badge-car">🚗 自駕採買</span>
+              <span class="badge badge-must">★ 必去</span>
+            </div>
+            <div class="tl-title">Workman Plus Iwamizawa 防寒保暖衣物</div>
+            <div class="tl-note">一次補齊雪地裝備：防水保暖手套、雪鏡、滑雪襪、防寒面罩/圍脖、保暖內衣</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DAY 2 -->
+      <div class="day-panel" id="panel-2">
+        <div class="day-banner">
+          <div>
+            <div class="day-banner-title">DAY 2（1/13 週三）旭川動物園＆白金青池夜燈</div>
+            <div class="day-banner-sub">美唄出發北上旭川 → 美瑛森林小木屋連住兩晚</div>
+          </div>
+          <!-- 企鵝 SVG -->
+          <svg width="46" height="42" viewBox="0 0 44 44" aria-hidden="true">
+            <ellipse cx="22" cy="24" rx="13" ry="17" fill="#3E3A39"/>
+            <ellipse cx="22" cy="26" rx="8" ry="12" fill="#FFFFFF"/>
+            <polygon points="22,12 18,16 26,16" fill="#F6D27A"/>
+            <rect x="13" y="18" width="18" height="4" rx="2" fill="#F2A497"/>
+          </svg>
+        </div>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">09:00~11:00</span>
+              <span class="badge badge-car">🚗 自駕 2 小時</span>
+            </div>
+            <div class="tl-title">從美唄出發開車前往旭川</div>
+            <div class="tl-note">09:00 準時出門，沿道央自動車道北上</div>
+          </div>
+
+          <div class="tl-item">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">11:00~12:30</span>
+              <span class="badge badge-walk">🍜 午餐</span>
+            </div>
+            <div class="tl-title">旭川拉麵村（或迴轉壽司）</div>
+            <div class="tl-note">11:00 開始營業，早點到比較不用排隊！備選：Choice 迴轉壽司、迴轉壽司 Toriton</div>
+          </div>
+
+          <div class="tl-item highlight">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">13:00~16:00</span>
+              <span class="badge badge-car">🚗 短程自駕</span>
+              <span class="badge badge-must">★ 必去</span>
+            </div>
+            <div class="tl-title">旭山動物園（旭川動物園）</div>
+            <div class="tl-note">冬季開園時間 10:30~15:30，必看超人氣企鵝散步與北極熊！</div>
+          </div>
+
+          <div class="tl-item highlight">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">17:00~</span>
+              <span class="badge badge-car">🚗 自駕前往美瑛</span>
+              <span class="badge badge-must">★ 必去</span>
+            </div>
+            <div class="tl-title">白金青池（冬季夜間點燈）</div>
+            <div class="tl-note">可視時間與行李狀況考慮先去美瑛住宿放行李再前往看點燈</div>
+          </div>
+
+          <div class="tl-item">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">晚餐時段</span>
+              <span class="badge badge-car">🚗 車程 3 分鐘</span>
+            </div>
+            <div class="tl-title">晚餐：輝山湯咖哩 ＆ 入住美瑛小木屋</div>
+            <div class="tl-note">餐廳距離住宿開車僅 3 分鐘；連住 2 晚「CABIN BUILD Sakura 広々」獨棟木屋</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DAY 3 -->
+      <div class="day-panel" id="panel-3">
+        <div class="day-banner">
+          <div>
+            <div class="day-banner-title">DAY 3（1/14 週四）富良野起司 DIY ＆ 精靈露臺</div>
+            <div class="day-banner-sub">手作體驗、在地美食與夢幻森林點燈</div>
+          </div>
+          <!-- 小木屋與雪樹 SVG -->
+          <svg width="54" height="40" viewBox="0 0 60 44" aria-hidden="true">
+            <polygon points="30,8 10,24 50,24" fill="#F2A497" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+            <rect x="16" y="24" width="28" height="15" fill="#F6D27A" stroke="#3E3A39" stroke-width="3"/>
+            <rect x="26" y="29" width="8" height="10" fill="#FFFFFF" stroke="#3E3A39" stroke-width="2.5"/>
+          </svg>
+        </div>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">09:00~10:30</span>
+              <span class="badge badge-car">🚗 自駕 90 分鐘</span>
+            </div>
+            <div class="tl-title">從美瑛開車前往富良野</div>
+            <div class="tl-note">沿途欣賞十勝岳雪原風光</div>
+          </div>
+
+          <div class="tl-item highlight">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">10:30~12:00</span>
+              <span class="badge badge-walk">🧀 手作體驗</span>
+              <span class="badge badge-must">★ 必去</span>
+            </div>
+            <div class="tl-title">富良野起司工房</div>
+            <div class="tl-note">體驗 DIY 親手做起司，品嚐濃郁鮮奶冰淇淋與起司披薩</div>
+          </div>
+
+          <div class="tl-item">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">12:30~</span>
+              <span class="badge badge-walk">🍜 午餐</span>
+            </div>
+            <div class="tl-title">午餐：富川製麵所</div>
+            <div class="tl-note">使用富良野在地小麥製作的招牌拉麵</div>
+          </div>
+
+          <div class="tl-item">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">13:00~</span>
+              <span class="badge badge-car">🚗 車程 5 分鐘</span>
+            </div>
+            <div class="tl-title">富良野農夫市集（Furano Marche）</div>
+            <div class="tl-note">採買富良野特色美食、甜點與伴手禮</div>
+          </div>
+
+          <div class="tl-item highlight">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">15:00~</span>
+              <span class="badge badge-car">🚗 車程 20 分鐘</span>
+              <span class="badge badge-must">★ 必去</span>
+            </div>
+            <div class="tl-title">森林精靈露臺 ＆ 富良野歡寒村</div>
+            <div class="tl-note">傍晚點燈超浪漫！新富良野王子大飯店附設廣大免費停車場，結束後返回美瑛小木屋續住</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DAY 4 -->
+      <div class="day-panel" id="panel-4">
+        <div class="day-banner">
+          <div>
+            <div class="day-banner-title">DAY 4（1/15 週五）長途移動往手稻 ＆ 藻岩山夜景</div>
+            <div class="day-banner-sub">美瑛南下札幌手稻區 → 搭乘纜車賞日本新三大夜景</div>
+          </div>
+          <!-- 纜車 SVG -->
+          <svg width="52" height="40" viewBox="0 0 56 44" aria-hidden="true">
+            <line x1="4" y1="10" x2="52" y2="6" stroke="#3E3A39" stroke-width="3"/>
+            <line x1="28" y1="8" x2="28" y2="16" stroke="#3E3A39" stroke-width="3"/>
+            <rect x="14" y="16" width="28" height="20" rx="6" fill="#B9DAA5" stroke="#3E3A39" stroke-width="3"/>
+            <rect x="19" y="20" width="8" height="8" rx="2" fill="#FFFFFF" stroke="#3E3A39" stroke-width="2"/>
+            <rect x="29" y="20" width="8" height="8" rx="2" fill="#FFFFFF" stroke="#3E3A39" stroke-width="2"/>
+          </svg>
+        </div>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">09:00~14:00</span>
+              <span class="badge badge-car">🚗 長途自駕 5 小時</span>
+            </div>
+            <div class="tl-title">從美瑛開車前往手稻</div>
+            <div class="tl-note">09:00 準時出門，途中適時於休息站（SA/PA）輪替駕駛與用餐</div>
+          </div>
+
+          <div class="tl-item">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">15:00~</span>
+              <span class="badge badge-walk">🏠 辦理入住</span>
+            </div>
+            <div class="tl-title">手稻區住宿放行李、稍作休息</div>
+            <div class="tl-note">安頓行李並準備保暖衣物上山看夜景</div>
+          </div>
+
+          <div class="tl-item highlight">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">16:00~</span>
+              <span class="badge badge-car">🚗 自駕 60 分鐘</span>
+              <span class="badge badge-ropeway">🚡 轉乘纜車</span>
+              <span class="badge badge-must">★ 必去</span>
+            </div>
+            <div class="tl-title">藻岩山山頂展望台夜景</div>
+            <div class="tl-note">開車至山麓站後轉搭藻岩山纜車＋迷你纜車登頂，俯瞰札幌雪夜璀璨燈火</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DAY 5 -->
+      <div class="day-panel" id="panel-5">
+        <div class="day-banner">
+          <div>
+            <div class="day-banner-title">DAY 5（1/16 週六）札幌市區巡禮・神宮與狸小路</div>
+            <div class="day-banner-sub">雪中神社散步、藥妝美食採買或彈性自由探索</div>
+          </div>
+          <!-- 鳥居 SVG -->
+          <svg width="50" height="40" viewBox="0 0 56 44" aria-hidden="true">
+            <path d="M8 10 Q28 15 48 10" stroke="#F2A497" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <path d="M8 10 Q28 15 48 10" stroke="#3E3A39" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <line x1="12" y1="18" x2="44" y2="18" stroke="#3E3A39" stroke-width="3.5"/>
+            <line x1="18" y1="12" x2="18" y2="39" stroke="#F2A497" stroke-width="5"/>
+            <line x1="18" y1="12" x2="18" y2="39" stroke="#3E3A39" stroke-width="2"/>
+            <line x1="38" y1="12" x2="38" y2="39" stroke="#F2A497" stroke-width="5"/>
+            <line x1="38" y1="12" x2="38" y2="39" stroke="#3E3A39" stroke-width="2"/>
+          </svg>
+        </div>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">上午時段</span>
+              <span class="badge badge-car">🚗 札幌市區自駕</span>
+            </div>
+            <div class="tl-title">北海道神宮雪景散步</div>
+            <div class="tl-note">被白雪覆蓋的參道與木造鳥居非常幽靜好拍（貼心備註：可參觀但不拜）</div>
+          </div>
+
+          <div class="tl-item">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">午餐時段</span>
+              <span class="badge badge-walk">🍜 市區美食</span>
+            </div>
+            <div class="tl-title">札幌市區特色午餐（成吉思汗烤肉 / 味噌拉麵 / 湯咖哩）</div>
+            <div class="tl-note">可依當天想吃的口味自由挑選大通或薄野周邊名店</div>
+          </div>
+
+          <div class="tl-item highlight">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">下午～晚間</span>
+              <span class="badge badge-walk">🛍️ 逛街採買</span>
+              <span class="badge badge-must">★ 必去</span>
+            </div>
+            <div class="tl-title">狸小路商店街 ＆ 大通公園雪景</div>
+            <div class="tl-note">藥妝店、伴手禮與美食街聚集（一般店家營業至 21:00~22:00，另有 24 小時營業的唐吉訶德可慢慢補貨）</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DAY 6 -->
+      <div class="day-panel" id="panel-6">
+        <div class="day-banner">
+          <div>
+            <div class="day-banner-title">DAY 6（1/17 週日）手稻滑雪場全天暢滑</div>
+            <div class="day-banner-sub">粉雪天堂盡情滑雪 → 提前預約裝備免排隊</div>
+          </div>
+          <!-- 滑雪板 SVG -->
+          <svg width="52" height="40" viewBox="0 0 56 44" aria-hidden="true">
+            <line x1="12" y1="36" x2="44" y2="8" stroke="#F2A497" stroke-width="6" stroke-linecap="round"/>
+            <line x1="12" y1="36" x2="44" y2="8" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="14" y1="8" x2="42" y2="36" stroke="#A8D3E6" stroke-width="6" stroke-linecap="round"/>
+            <line x1="14" y1="8" x2="42" y2="36" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <div class="timeline">
+          <div class="tl-item highlight">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">07:00~出門</span>
+              <span class="badge badge-car">🚗 自駕 90 分鐘</span>
+              <span class="badge badge-must">★ 必去</span>
+            </div>
+            <div class="tl-title">札幌手稻滑雪場（Sapporo Teine）ALL DAY</div>
+            <div class="tl-note">
+              雪場營業時間 09:00~16:00，建議 <strong>08:30 抵達先租裝備</strong>。<br>
+              ⚠️ 週末人潮眾多，務必提前「線上預約租借」！
+            </div>
+            <a class="tl-link" href="https://reg18.smp.ne.jp/regist/is?SMPFORM=nera-rhnfn-a4ef533f80c11361626a9468e527de79&hl=en" target="_blank" rel="noopener noreferrer">
+              前往手稻雪場線上預約租借 ↗
+            </a>
+          </div>
+
+          <div class="tl-item">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">16:30~</span>
+              <span class="badge badge-car">🚗 返回手稻住宿</span>
+            </div>
+            <div class="tl-title">滑雪結束返回休息 ＆ 晚餐</div>
+            <div class="tl-note">泡澡放鬆肌肉，準備隔天前往小樽悠閒逛街</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DAY 7 -->
+      <div class="day-panel" id="panel-7">
+        <div class="day-banner">
+          <div>
+            <div class="day-banner-title">DAY 7（1/18 週一）浪漫小樽運河懷舊漫遊</div>
+            <div class="day-banner-sub">三角市場海鮮丼 → 堺町通甜點伴手禮 → 運河夜燈</div>
+          </div>
+          <!-- 小樽煤氣燈 SVG -->
+          <svg width="46" height="42" viewBox="0 0 48 44" aria-hidden="true">
+            <line x1="24" y1="18" x2="24" y2="40" stroke="#3E3A39" stroke-width="3.5" stroke-linecap="round"/>
+            <line x1="16" y1="40" x2="32" y2="40" stroke="#3E3A39" stroke-width="3.5" stroke-linecap="round"/>
+            <polygon points="16,18 32,18 29,8 19,8" fill="#F6D27A" stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round"/>
+            <polygon points="14,8 34,8 24,3" fill="#3E3A39"/>
+          </svg>
+        </div>
+
+        <div class="timeline">
+          <div class="tl-item highlight">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">10:30~</span>
+              <span class="badge badge-car">🚗 自駕 80 分鐘</span>
+              <span class="badge badge-must">★ 必去</span>
+            </div>
+            <div class="tl-title">午餐：小樽三角市場</div>
+            <div class="tl-note">品嚐新鮮帝王蟹、海膽鮭魚卵海鮮丼</div>
+          </div>
+
+          <div class="tl-item highlight">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">12:00~晚上</span>
+              <span class="badge badge-walk">🚶 散步逛街 ALL DAY</span>
+              <span class="badge badge-must">★ 必去</span>
+            </div>
+            <div class="tl-title">小樽運河 ＆ 堺町通商店街深度漫遊</div>
+            <div class="tl-note">
+              <strong>必逛景點：</strong>小樽運河、大正硝子館、小樽堺町通商店街、蒸氣鐘、小樽音樂盒堂本館<br>
+              <strong>必買伴手禮：</strong>六花亭、北菓樓、LeTAO 本店（傍晚運河煤氣燈會點燈超好拍！）
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DAY 8 -->
+      <div class="day-panel" id="panel-8">
+        <div class="day-banner">
+          <div>
+            <div class="day-banner-title">DAY 8（1/19 週二）滿載回憶平安返家</div>
+            <div class="day-banner-sub">整理行李還車 → 新千歲機場最後採買 → 飛回高雄</div>
+          </div>
+          <!-- 飛機 SVG -->
+          <svg width="54" height="38" viewBox="0 0 60 40" aria-hidden="true">
+            <path d="M10 24 L26 24 L34 10 L40 10 L36 24 L48 24 L52 18 L56 18 L53 27 L10 27 Z" fill="#F6D27A" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">上午時段</span>
+              <span class="badge badge-car">🚗 自駕還車</span>
+            </div>
+            <div class="tl-title">退房前往新千歲機場 ＆ 加滿油還車</div>
+            <div class="tl-note">預留冬季雪地車程與還車接駁時間，建議起飛前 2.5～3 小時抵達機場（還可順便逛新千歲國內線商店街）</div>
+          </div>
+
+          <div class="tl-item">
+            <span class="tl-dot"></span>
+            <div class="tl-top">
+              <span class="tl-time">13:55~18:05</span>
+              <span class="badge badge-flight">✈️ 飛機 IT261</span>
+            </div>
+            <div class="tl-title">新千歲機場飛往高雄小港機場</div>
+            <div class="tl-note">搭乘台灣虎航 IT261，18:05 平安抵達高雄！</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 住宿資訊 -->
+    <section class="card" id="stays">
+      <h2 class="section-title bg-wakatake">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 11L12 4L21 11V20H15V14H9V20H3V11Z" fill="#FFFFFF" stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round"/>
+        </svg>
+        <span>住宿資訊</span>
+      </h2>
+
+      <div class="stay-list">
+        <!-- 住宿 1 -->
+        <div class="stay-card">
+          <div class="stay-head">
+            <span class="badge bg-yamabuki">1/12 (Day 1)</span>
+            <span class="stay-nights">住 1 晚</span>
+          </div>
+          <div class="stay-name">美唄市獨棟民宿（Airbnb）</div>
+          <div class="stay-addr">📍 北海道美唄市東3條北6丁目3-20</div>
+          <div class="stay-actions">
+            <a class="btn-mini" href="https://www.airbnb.com.tw/rooms/1548907533175888130?source_impression_id=p3_1785242339_P3ZnfNQfWbI0bBGf" target="_blank" rel="noopener noreferrer">開啟 Airbnb 訂房頁面 ↗</a>
+            <button type="button" class="btn-mini copy-btn" data-copy="北海道美唄市東3條北6丁目3-20">複製地址</button>
+          </div>
+        </div>
+
+        <!-- 住宿 2 -->
+        <div class="stay-card">
+          <div class="stay-head">
+            <span class="badge bg-mizu">1/13 – 1/14 (Day 2–3)</span>
+            <span class="stay-nights">連住 2 晚</span>
+          </div>
+          <div class="stay-name">CABIN BUILD Sakura 広々（美瑛一軒家貸切）</div>
+          <div class="stay-addr">📍 北海道美瑛町（距離輝山湯咖哩車程約 3 分鐘）</div>
+          <div class="stay-actions">
+            <button type="button" class="btn-mini copy-btn" data-copy="CABIN BUILD Sakura 美瑛">複製住宿名稱</button>
+          </div>
+        </div>
+
+        <!-- 住宿 3 -->
+        <div class="stay-card">
+          <div class="stay-head">
+            <span class="badge bg-coral">1/15 – 1/18 (Day 4–7)</span>
+            <span class="stay-nights">連住 4 晚</span>
+          </div>
+          <div class="stay-name">札幌・手稻區住宿</div>
+          <div class="stay-addr">📍 札幌手稻區域（方便前往藻岩山、札幌市區、手稻滑雪場與小樽）</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 可打勾的待辦清單 -->
+    <section class="card" id="todos">
+      <h2 class="section-title bg-mizu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="4" y="4" width="16" height="16" rx="4" fill="#FFFFFF" stroke="#3E3A39" stroke-width="2.5"/>
+          <path d="M8 12L11 15L16 9" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>行前待辦清單</span>
+      </h2>
+
+      <div class="progress-wrap">
+        <div class="progress-info">
+          <span>完成進度</span>
+          <span id="todo-progress-text">0 / 0</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="todo-progress-bar"></div></div>
+      </div>
+
+      <ul class="checklist" id="list-todos" data-storage-key="hokkaido_todos_v1">
+        <li class="check-item" data-id="td1">
+          <span class="custom-box"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8L6.5 11.5L13 4.5" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="check-content">
+            <span class="check-text">線上預約手稻滑雪場裝備租借（1/17 週末場次）</span>
+            <span class="check-sub">週末人潮多，務必提前於官網系統登記預約</span>
+          </div>
+        </li>
+        <li class="check-item" data-id="td2">
+          <span class="custom-box"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8L6.5 11.5L13 4.5" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="check-content">
+            <span class="check-text">辦理台灣駕照「日文譯本」</span>
+            <span class="check-sub">監理站現場辦理，須搭配台灣駕照正本與護照使用</span>
+          </div>
+        </li>
+        <li class="check-item" data-id="td3">
+          <span class="custom-box"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8L6.5 11.5L13 4.5" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="check-content">
+            <span class="check-text">確認北海道雪地自駕租車訂單（4WD、雪胎、ETC 卡與全險）</span>
+            <span class="check-sub">1/12 14:00 新千歲機場取車，1/19 機場還車</span>
+          </div>
+        </li>
+        <li class="check-item" data-id="td4">
+          <span class="custom-box"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8L6.5 11.5L13 4.5" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="check-content">
+            <span class="check-text">預約富良野起司工房 DIY 體驗時段</span>
+            <span class="check-sub">預計 1/14 10:30~12:00 進行手作體驗</span>
+          </div>
+        </li>
+        <li class="check-item" data-id="td5">
+          <span class="custom-box"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8L6.5 11.5L13 4.5" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="check-content">
+            <span class="check-text">填寫 Visit Japan Web 入境與海關申報 QR Code</span>
+            <span class="check-sub">出發前 6 小時以上完成登錄並截圖備用</span>
+          </div>
+        </li>
+        <li class="check-item" data-id="td6">
+          <span class="custom-box"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8L6.5 11.5L13 4.5" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="check-content">
+            <span class="check-text">投保旅遊平安險＋海外突發疾病險（含雪地活動保障）</span>
+            <span class="check-sub">確認包含海外醫療專機與自駕相關保障</span>
+          </div>
+        </li>
+      </ul>
+
+      <div class="add-item-row">
+        <input type="text" class="add-input" id="new-todo-input" placeholder="新增自訂待辦事項...">
+        <button type="button" class="add-btn" id="add-todo-btn">＋新增</button>
+      </div>
+    </section>
+
+    <!-- 出發前清單 -->
+    <section class="card" id="predeparture">
+      <h2 class="section-title bg-coral">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" fill="#FFFFFF" stroke="#3E3A39" stroke-width="2.5"/>
+          <path d="M12 7V12L15 14" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <span>出發前 24 小時最終確認</span>
+      </h2>
+
+      <div class="progress-wrap">
+        <div class="progress-info">
+          <span>確認進度</span>
+          <span id="pre-progress-text">0 / 0</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="pre-progress-bar"></div></div>
+      </div>
+
+      <ul class="checklist" id="list-pre" data-storage-key="hokkaido_pre_v1">
+        <li class="check-item" data-id="pr1">
+          <span class="custom-box"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8L6.5 11.5L13 4.5" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="check-content">
+            <span class="check-text">護照正本（效期 6 個月以上）＋ 台灣駕照正本 ＋ 日文譯本</span>
+            <span class="check-sub">缺一不可，建議放在隨身拉鍊袋</span>
+          </div>
+        </li>
+        <li class="check-item" data-id="pr2">
+          <span class="custom-box"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8L6.5 11.5L13 4.5" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="check-content">
+            <span class="check-text">虎航 IT260 線上報到 / 確認托運行李額度</span>
+            <span class="check-sub">06:00 抵達高雄機場，預留冬季厚重衣物重量額度</span>
+          </div>
+        </li>
+        <li class="check-item" data-id="pr3">
+          <span class="custom-box"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8L6.5 11.5L13 4.5" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="check-content">
+            <span class="check-text">開通日本漫遊 / 安裝 eSIM 並測試設定</span>
+            <span class="check-sub">自駕導航 Google Maps 與聯絡民宿必備</span>
+          </div>
+        </li>
+        <li class="check-item" data-id="pr4">
+          <span class="custom-box"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8L6.5 11.5L13 4.5" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="check-content">
+            <span class="check-text">離線儲存住宿地址、MapCode 與緊急聯絡電話</span>
+            <span class="check-sub">山區或雪地訊號不穩時可直接輸入車機導航</span>
+          </div>
+        </li>
+        <li class="check-item" data-id="pr5">
+          <span class="custom-box"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8L6.5 11.5L13 4.5" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="check-content">
+            <span class="check-text">行動電源與備用電池全數放入「隨身手提行李」</span>
+            <span class="check-sub">嚴禁托運！低溫環境手機掉電快，建議多帶一顆備用</span>
+          </div>
+        </li>
+        <li class="check-item" data-id="pr6">
+          <span class="custom-box"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8L6.5 11.5L13 4.5" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div class="check-content">
+            <span class="check-text">家中門窗、瓦斯、非必要電源關閉與垃圾清理</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 行李清單 -->
+    <section class="card" id="luggage">
+      <h2 class="section-title bg-yamabuki">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="6" y="7" width="12" height="14" rx="3" fill="#FFFFFF" stroke="#3E3A39" stroke-width="2.5"/>
+          <path d="M9 7V4H15V7" stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round"/>
+        </svg>
+        <span>北海道冬季行李清單</span>
+      </h2>
+
+      <div class="progress-wrap">
+        <div class="progress-info">
+          <span>打包進度</span>
+          <span id="lug-progress-text">0 / 0</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="lug-progress-bar"></div></div>
+      </div>
+
+      <div id="luggage-container" data-storage-key="hokkaido_luggage_v1">
+        <div class="luggage-group-title bg-mizu">❄️ 雪地防寒與滑雪裝備（Day 1 可於 Workman 補買）</div>
+        <ul class="checklist">
+          <li class="check-item" data-id="lg1">
+            <span class="custom-box"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8L6.5 11.5L13 4.5" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div class="check-content"><span class="check-text">防風防水厚羽絨外套 / 雪衣</span></div>
+          </li>
+          <li class="check-item" data-id="lg2">
+            <span class="custom-box"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8L6.5 11.5L13 4.5" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div class="check-content"><span class="check-text">發熱保暖內衣褲（洋蔥式穿法，室內暖氣強）</span></div>
+          </li>
+          <li class="check-item" data-id="lg3">
+            <span class="custom-box"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8L6.5 11.5L13 4.5" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div class="check-content"><span class="check-text">防滑防水雪靴（鞋底溝槽深、防滲水）</span></div>
+          </li>
+          <li class="check-item" data-id="lg4">
+            <span class="custom-box"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8L6.5 11.5L13 4.5" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div class="check-content"><span class="check-text">防水保暖手套、雪鏡、滑雪襪、防寒面罩/圍脖</span><span class="check-sub">Day 1 17:00 Workman Plus Iwamizawa 採買清單</span></div>
+          </li>
+          <li class="check-item" data-id="lg5">
+            <span class="custom-box"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8L6.5 11.5L13 4.5" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div class="check-content"><span class="check-text">毛帽（可遮耳朵）、暖暖包（貼式＋手握式）</span></div>
+          </li>
+        </ul>
+
+        <div class="luggage-group-title bg-wakatake">💳 證件與隨身財務</div>
+        <ul class="checklist">
+          <li class="check-item" data-id="lg6">
+            <span class="custom-box"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8L6.5 11.5L13 4.5" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div class="check-content"><span class="check-text">日幣現金、海外高回饋信用卡（實體卡＋Apple Pay/Suica）</span></div>
+          </li>
+          <li class="check-item" data-id="lg7">
+            <span class="custom-box"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8L6.5 11.5L13 4.5" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div class="check-content"><span class="check-text">太陽眼鏡（雪地反光強烈，自駕必備抗眩光）</span></div>
+          </li>
+        </ul>
+
+        <div class="luggage-group-title bg-coral">🔌 3C 電子與保濕用品</div>
+        <ul class="checklist" id="luggage-extra-list">
+          <li class="check-item" data-id="lg8">
+            <span class="custom-box"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8L6.5 11.5L13 4.5" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div class="check-content"><span class="check-text">充電器、多孔延長線、車用手機支架與車充線</span></div>
+          </li>
+          <li class="check-item" data-id="lg9">
+            <span class="custom-box"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8L6.5 11.5L13 4.5" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div class="check-content"><span class="check-text">高保濕乳液、護唇膏、個人常備藥品（感冒/腸胃/止痛）</span><span class="check-sub">北海道冬季極度乾燥，保濕與護唇膏非常重要</span></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="add-item-row">
+        <input type="text" class="add-input" id="new-lug-input" placeholder="新增自訂行李項目...">
+        <button type="button" class="add-btn" id="add-lug-btn">＋新增</button>
+      </div>
+    </section>
+
+  </main>
+
+<script>
+  // 1. 出發倒數計時 (目標時間：2027-01-12 08:00:00 台灣時間 UTC+8)
+  (function initCountdown() {
+    const target = new Date('2027-01-12T08:00:00+08:00').getTime();
+    const elDays = document.getElementById('cd-days');
+    const elHours = document.getElementById('cd-hours');
+    const elMins = document.getElementById('cd-mins');
+    const elSecs = document.getElementById('cd-secs');
+
+    function update() {
+      const now = Date.now();
+      const diff = target - now;
+      if (diff <= 0) {
+        elDays.textContent = '0';
+        elHours.textContent = '0';
+        elMins.textContent = '0';
+        elSecs.textContent = '0';
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const mins = Math.floor((diff / (1000 * 60)) % 60);
+      const secs = Math.floor((diff / 1000) % 60);
+
+      elDays.textContent = String(days);
+      elHours.textContent = String(hours).padStart(2, '0');
+      elMins.textContent = String(mins).padStart(2, '0');
+      elSecs.textContent = String(secs).padStart(2, '0');
+    }
+    update();
+    setInterval(update, 1000);
+  })();
+
+  // 2. 減少動態效果切換 (同步系統設定與手動按鈕)
+  (function initMotionToggle() {
+    const btn = document.getElementById('motionToggle');
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let reduced = localStorage.getItem('hokkaido_reduce_motion');
+    if (reduced === null) {
+      reduced = mq.matches ? 'true' : 'false';
+    }
+
+    function applyState(isReduced) {
+      document.body.classList.toggle('reduce-motion', isReduced);
+      btn.setAttribute('aria-pressed', String(isReduced));
+      btn.textContent = isReduced ? '動態：關' : '動態：開';
+    }
+
+    applyState(reduced === 'true');
+
+    btn.addEventListener('click', () => {
+      const next = !document.body.classList.contains('reduce-motion');
+      localStorage.setItem('hokkaido_reduce_motion', String(next));
+      applyState(next);
+    });
+  })();
+
+  // 3. 每日行程日期切換（含彈跳動畫重觸發）
+  (function initDayTabs() {
+    const tabs = document.querySelectorAll('.day-tab');
+    const panels = document.querySelectorAll('.day-panel');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const day = tab.dataset.day;
+        tabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        panels.forEach(p => {
+          p.classList.remove('active');
+        });
+        const activePanel = document.getElementById('panel-' + day);
+        // 強制 reflow 讓每次點擊都能重新觸發彈跳動畫
+        void activePanel.offsetWidth;
+        activePanel.classList.add('active');
+      });
+    });
+  })();
+
+  // 4. 複製地址按鈕
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const text = btn.dataset.copy;
+      navigator.clipboard?.writeText(text);
+      const orig = btn.textContent;
+      btn.textContent = '已複製！';
+      setTimeout(() => { btn.textContent = orig; }, 1400);
+    });
+  });
+
+  // 5. 可打勾清單系統 (支援 localStorage 記憶狀態與新增項目)
+  function setupChecklist(containerEl, progressTextEl, progressBarEl, storageKey) {
+    let saved = {};
+    try {
+      saved = JSON.parse(localStorage.getItem(storageKey) || '{}');
+    } catch (e) {
+      saved = {};
+    }
+
+    // 還原自訂項目
+    if (Array.isArray(saved.customItems)) {
+      const targetList = containerEl.tagName === 'UL' ? containerEl : containerEl.querySelector('ul:last-of-type');
+      saved.customItems.forEach(item => {
+        appendCheckItem(targetList, item.id, item.text);
+      });
+    }
+
+    function updateProgress() {
+      const items = containerEl.querySelectorAll('.check-item');
+      const checked = containerEl.querySelectorAll('.check-item.checked');
+      const total = items.length;
+      const done = checked.length;
+      progressTextEl.textContent = `${done} / ${total}`;
+      progressBarEl.style.width = total > 0 ? `${Math.round((done / total) * 100)}%` : '0%';
+    }
+
+    function saveState() {
+      const checkedIds = [];
+      containerEl.querySelectorAll('.check-item.checked').forEach(el => {
+        checkedIds.push(el.dataset.id);
+      });
+      saved.checkedIds = checkedIds;
+      localStorage.setItem(storageKey, JSON.stringify(saved));
+      updateProgress();
+    }
+
+    // 套用已勾選狀態
+    if (Array.isArray(saved.checkedIds)) {
+      saved.checkedIds.forEach(id => {
+        const el = containerEl.querySelector(`.check-item[data-id="${id}"]`);
+        if (el) el.classList.add('checked');
+      });
+    }
+
+    containerEl.addEventListener('click', (e) => {
+      const item = e.target.closest('.check-item');
+      if (!item) return;
+      item.classList.toggle('checked');
+      saveState();
+    });
+
+    updateProgress();
+
+    return {
+      addCustom(text) {
+        const clean = text.trim();
+        if (!clean) return;
+        const id = 'custom_' + Date.now();
+        const targetList = containerEl.tagName === 'UL' ? containerEl : containerEl.querySelector('ul:last-of-type');
+        appendCheckItem(targetList, id, clean);
+        if (!Array.isArray(saved.customItems)) saved.customItems = [];
+        saved.customItems.push({ id, text: clean });
+        saveState();
+      }
+    };
+  }
+
+  function appendCheckItem(ul, id, text) {
+    const li = document.createElement('li');
+    li.className = 'check-item';
+    li.dataset.id = id;
+    li.innerHTML = `
+      <span class="custom-box"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 8L6.5 11.5L13 4.5" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div class="check-content"><span class="check-text"></span></div>
+    `;
+    li.querySelector('.check-text').textContent = text;
+    ul.appendChild(li);
+  }
+
+  const todoCtrl = setupChecklist(
+    document.getElementById('list-todos'),
+    document.getElementById('todo-progress-text'),
+    document.getElementById('todo-progress-bar'),
+    'hokkaido_todos_v1'
+  );
+
+  setupChecklist(
+    document.getElementById('list-pre'),
+    document.getElementById('pre-progress-text'),
+    document.getElementById('pre-progress-bar'),
+    'hokkaido_pre_v1'
+  );
+
+  const lugCtrl = setupChecklist(
+    document.getElementById('luggage-container'),
+    document.getElementById('lug-progress-text'),
+    document.getElementById('lug-progress-bar'),
+    'hokkaido_luggage_v1'
+  );
+
+  document.getElementById('add-todo-btn').addEventListener('click', () => {
+    const input = document.getElementById('new-todo-input');
+    todoCtrl.addCustom(input.value);
+    input.value = '';
+  });
+
+  document.getElementById('add-lug-btn').addEventListener('click', () => {
+    const input = document.getElementById('new-lug-input');
+    lugCtrl.addCustom(input.value);
+    input.value = '';
+  });
+</script>
+</body>
+</html>
